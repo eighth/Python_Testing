@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest
+# from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.chrome.webdriver import WebDriver
+import unittest
 
 def is_alert_present(wd):
     try:
@@ -14,7 +14,7 @@ class t2unitpy(unittest.TestCase):
     def setUp(self):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
-    
+
     def test_t2unitpy(self):
         success = True
         wd = self.wd
@@ -23,7 +23,7 @@ class t2unitpy(unittest.TestCase):
         wd.find_element_by_link_text("О проекте").click()
         wd.find_element_by_id("logo").click()
         self.assertTrue(success)
-    
+
     def tearDown(self):
         self.wd.quit()
 
